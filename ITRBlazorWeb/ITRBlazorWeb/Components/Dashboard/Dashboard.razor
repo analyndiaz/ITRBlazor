@@ -1,0 +1,82 @@
+﻿@page "/"
+@page "/dashboard/{Section}"
+
+@attribute [Authorize]
+
+@using Evolve.ITR.ServiceContract.DTOs
+@using System.Globalization;
+@using ITRBlazorWeb.Client.Layout
+@using Microsoft.AspNetCore.Authorization
+
+@inject IDashboardService DashboardService;
+
+<PageTitle>@CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Section ?? "core") Dashboard</PageTitle>
+
+@if (loading || dashboardData == null)
+{
+    <div class="text-center">
+        <Spinner Class="me-3" Type="SpinnerType.Dots" Color="SpinnerColor.Secondary" Size="SpinnerSize.ExtraLarge" />
+    </div>
+}
+else
+{
+    <div id="tile-container">
+        @foreach (var tileSection in dashboardData?.TileSections ?? [])
+        {
+            <div id="dashboard-tiles" class="row dashboard-tiles-section">
+                <div class="col-12 tile-section-header"><h5>@tileSection.Title</h5></div>
+
+                @foreach (var tile in tileSection.Tiles)
+                {
+                    <TileCount Tile=@tile Section=@Section />
+                }
+            </div>
+        }
+    </div>
+}
+
+
+@code {
+    [Parameter] public string Section { get; set; } = "core";
+    [CascadingParameter] public MainLayout Main { get; set; } = default!;
+
+    bool loading = false;
+    DashboardDTO? dashboardData;
+    string oldSection = string.Empty;
+
+    private PersistingComponentStateSubscription _subscription;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadPageData();
+        oldSection = Section;
+
+        await base.OnInitializedAsync();
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender || oldSection != Section)
+        {
+            Main?.SetPage($"{CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Section?.Replace("-", " ") ?? "core")} Dashboard");
+            oldSection = Section;
+        }
+        return Task.CompletedTask;
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (oldSection != Section)
+        {
+            await LoadPageData();
+        }
+        
+    }
+
+    private async Task LoadPageData()
+    {
+        loading = true;
+        dashboardData = await DashboardService.GetDashboardSections(Section);
+        loading = false;
+    }
+}

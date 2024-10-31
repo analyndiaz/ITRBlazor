@@ -1,0 +1,44 @@
+﻿<Sidebar2 Href="/"
+          Title="EVOLVE"
+          DataProvider="Sidebar2DataProvider"
+          Class="sidebar"/>
+
+@code {
+    IEnumerable<NavItem> navItems;
+
+    private async Task<Sidebar2DataProviderResult> Sidebar2DataProvider(Sidebar2DataProviderRequest request)
+    {
+        if (navItems is null)
+            navItems = GetNavItems();
+
+        return await Task.FromResult(request.ApplyTo(navItems));
+    }
+
+    private IEnumerable<NavItem> GetNavItems()
+    {
+        navItems = new List<NavItem>
+                   {
+                       new NavItem { Id = "1", Href = "/", IconName = IconName.Speedometer2, Text = "Dashboard" },
+                       new NavItem { Id = "2", Href = "/dashboard/core", IconName = IconName.HouseDoorFill, Text = "Element Core", ParentId = "1" },
+                       new NavItem { Id = "3", Href = "/dashboard/client", IconName = IconName.PeopleFill, Text = "Client", ParentId = "1" },
+                       new NavItem { Id = "4", Href = "/dashboard/historical", IconName = IconName.ClockHistory, Text = "Historical", ParentId = "1" },
+                       new NavItem { Id = "5", Href = "/dashboard/historical-core", IconName = IconName.TicketPerforatedFill, Text = "Core ITR", ParentId = "4" },
+                       new NavItem { Id = "6", Href = "/dashboard/historical-temp", IconName = IconName.TicketPerforated, Text = "Temp ITR", ParentId = "4" },
+                       new NavItem { Id = "7", Href = "/dashboard/historical-temp-tag", IconName = IconName.TagsFill, Text = "Temp Tags", ParentId = "4" },
+                       new NavItem { Id = "8", Href = "/settings",  IconName = IconName.GearFill, Text = "Settings" },
+                       new NavItem { Id = "9", Href = "/settings/email-templates",  IconName = IconName.EnvelopeAtFill, Text = "Email Templates", ParentId = "9" },
+                       new NavItem { Id = "10", Href = "/settings/users",  IconName = IconName.Person, Text = "Users" , ParentId = "9" },
+                       new NavItem { Id = "11", Href = "/settings/customers",  IconName = IconName.PersonLinesFill, Text = "Customers" , ParentId = "9" },
+                       new NavItem { Id = "12", Href = "/settings/events-triggers",  IconName = IconName.Magic, Text = "Events & Triggers" , ParentId = "9" },
+                       new NavItem { Id = "13", Href = "/settings/onetime-links",  IconName = IconName.Link45Deg, Text = "One Time Links", ParentId = "9" },
+                       new NavItem { Id = "14", Href = "/settings/field-mappings",  IconName = IconName.Columns, Text = "Field Mappings" , ParentId = "9" },
+                       new NavItem { Id = "15", Href = "/settings/roles",  IconName = IconName.LockFill, Text = "Roles", ParentId = "9" },
+                       new NavItem { Id = "16", Href = "/prerequisites",  IconName = IconName.ListCheck, Text = "Pre-Requisites", Match=NavLinkMatch.All },
+                       new NavItem { Id = "17", Href = "/search",  IconName = IconName.Search, Text = "Search", Match=NavLinkMatch.All },
+                   };
+
+        return navItems;
+    }
+}
+
+

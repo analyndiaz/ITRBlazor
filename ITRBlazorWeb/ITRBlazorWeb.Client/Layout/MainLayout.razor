@@ -1,0 +1,101 @@
+﻿@inherits LayoutComponentBase
+
+@using ITRBlazorWeb.Client.Pages.Login
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+
+@inject NavigationManager NavigationManager
+
+<div class="bb-page">
+    <AuthorizeView>
+        <Authorized>
+            <NavMenu />
+        </Authorized>
+    </AuthorizeView>
+    <main>
+        <AuthorizeView>
+            <Authorized>
+            <div class="top-row px-4 bg-dark">
+                <Dropdown AutoClose="true">
+                    <DropdownToggleButton Class="account-dropdown">@context.User.Identity?.Name</DropdownToggleButton>
+                    <DropdownMenu Position="DropdownMenuPosition.End">
+                        <DropdownItem To="#" Type="DropdownItemType.Button" Disabled="true">Manage</DropdownItem>
+                        <DropdownDivider>Dropdown header</DropdownDivider>
+                        <form action="Account/Logout" method="post">
+                            <AntiforgeryToken />
+                            <input type="hidden" name="ReturnUrl" value="@currentUrl" />
+                            <button type="submit" class="dropdown-item">Logout</button>
+                        </form>
+                    </DropdownMenu>
+                    <DropdownMenu>
+                        <form action="Account/Logout" method="post">
+                            <AntiforgeryToken />
+                            <input type="hidden" name="ReturnUrl" value="@currentUrl" />
+                            <button type="submit" class="nav-link">
+                                Logout
+                            </button>
+                        </form>
+                    </DropdownMenu>
+                </Dropdown>
+            </div>
+            </Authorized>
+        </AuthorizeView>
+        <CascadingValue Value="this">
+            <article class="content">
+                <AuthorizeView>
+                    <Authorized>
+                        <div class="column_title">
+                            <div class="col-md-12">
+                                <div class="page_title row">
+                                    <div class="col-6 col-md-10"><h3 class="mb-0 mt-2">@CurrentPage</h3></div>
+                                    <div class="col-6 col-md-2" style="justify-content: end;">
+                                        <Image Src="images/logo.png" Style="width: 130px; margin-left: 52px"></Image>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Authorized>
+                </AuthorizeView>
+                <div class="mid_content">@Body</div>
+            </article>
+        </CascadingValue>
+    </main>
+</div>
+
+@code{
+    public string CurrentPage = default!;
+
+    private string? currentUrl;
+
+    protected override async Task OnInitializedAsync()
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
+        await base.OnInitializedAsync();
+    }
+
+    public void SetPage(string page)
+    {
+        CurrentPage = page;
+        StateHasChanged();
+
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+}
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+

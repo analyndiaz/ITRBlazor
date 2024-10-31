@@ -1,0 +1,187 @@
+﻿.dashtile-top {
+    display: inline-block;
+    width: 100%;
+    height: 40%;
+    padding: 30px 30px;
+}
+
+    .dashtile-top i {
+        width: 33%;
+        height: 100%;
+        font-size: 4em;
+        display: inline-block;
+    }
+
+    .dashtile-top .count {
+        height: 100%;
+        font-size: 80px;
+        line-height: 50px;
+        float: right;
+    }
+
+.dashtile-title {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    height: 60%;
+}
+
+    .dashtile-title h2 {
+        font-size: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 400;
+    }
+
+#tile-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.tile-section-header {
+    width: 90%;
+    color: darkslategray;
+    margin-bottom: 10px;
+}
+
+    .tile-section-header h5 {
+        border-bottom: solid;
+        border-color: #6D8383;
+        padding-bottom: 5px;
+    }
+
+h5 {
+    font-weight: 600 !important;
+}
+
+#tile-container .tile {
+    background-color: var(--green-default);
+}
+
+    #tile-container .tile:hover {
+        background-color: var(--green-hover);
+    }
+
+    #tile-container .tile.dark {
+        background-color: var(--dark);
+    }
+
+        #tile-container .tile.dark:hover {
+            background-color: var(--dark-hover);
+        }
+
+
+    #tile-container .tile.turquoise {
+        background-color: var(--turquoise-default);
+    }
+
+        #tile-container .tile.turquoise:hover {
+            background-color: var(--turquoise-hover);
+        }
+
+    #tile-container .tile.green {
+        background-color: var(--green-default);
+    }
+
+        #tile-container .tile.green:hover {
+            background-color: var(--green-hover);
+        }
+
+    #tile-container .tile.yellow {
+        background-color: var(--yellow-default);
+    }
+
+        #tile-container .tile.yellow:hover {
+            background-color: var(--yellow-hover);
+        }
+
+    #tile-container .tile.blue {
+        background-color: var(--blue-default);
+    }
+
+        #tile-container .tile.blue:hover {
+            background-color: var(--blue-hover);
+        }
+
+    #tile-container .tile.red {
+        background-color: var(--red-default);
+    }
+
+        #tile-container .tile.red:hover {
+            background-color: var(--red-hover);
+        }
+
+    #tile-container .tile.white {
+        border-style: solid;
+        border-color: whitesmoke;
+        color: grey;
+        background-color: var(--white-default);
+    }
+
+        #tile-container .tile.white:hover {
+            background-color: var(--white-hover);
+        }
+
+    #tile-container .tile.westside {
+        background-color: var(--westside-default);
+    }
+
+        #tile-container .tile.westside:hover {
+            background-color: var(--westside-hover);
+        }
+
+    #tile-container .tile.sushi {
+        background-color: var(--sushi-default);
+    }
+
+        #tile-container .tile.sushi:hover {
+            background-color: var(--sushi-hover);
+        }
+
+    #tile-container .tile.cobalt {
+        background-color: var(--cobalt-default);
+    }
+
+        #tile-container .tile.cobalt:hover {
+            background-color: var(--cobalt-hover);
+        }
+
+
+    #tile-container .tile.orange {
+        background-color: var(--orange-default);
+    }
+
+        #tile-container .tile.orange:hover {
+            background-color: var(--orange-hover);
+        }
+
+    #tile-container .tile.cyan {
+        background-color: #0dc79f;
+    }
+
+        #tile-container .tile.cyan:hover {
+            background-color: #749B00;
+        }
+
+    #tile-container .tile.black {
+        background-color: #061922;
+    }
+
+        #tile-container .tile.black:hover {
+            background-color: #749B00;
+        }
+
+    #tile-container .tile.gray {
+        background-color: darkgrey;
+    }
+
+        #tile-container .tile.gray:hover {
+            background-color: #818181;
+        }
+
+.tile,
+.tile-section > div > a {
+    color: white;
+    text-decoration: none;
+}

@@ -1,0 +1,42 @@
+﻿.page-title {
+    margin-bottom: 0;
+}
+
+.form-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #BED5B9;
+}
+
+.login-form {
+    width: 30%;
+    margin: 0 auto;
+    padding: 23px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    border: 4px solid var(--green-hover);
+}
+
+.link {
+    text-decoration: none;
+}
+
+article > .mid_content {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+button[type="submit"] {
+    background-color: var(--green-hover);
+    border-color: var(--green-hover);
+    border-radius: 3px;
+}
+
+.ml-0 {
+    margin-left: 0;
+}
+
+.mr-0 {
+    margin-right: 0;
+}

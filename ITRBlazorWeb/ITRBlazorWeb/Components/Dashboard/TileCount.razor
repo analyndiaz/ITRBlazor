@@ -1,0 +1,72 @@
+﻿@using Evolve.ITR.ServiceContract.DTOs
+@using Evolve.ITR.ServiceContract.Enums
+@using ITRBlazorWeb.Components.Shared
+
+@inject IDashboardService DashboardService
+
+<div class="col-xxl-3 col-xl-4 col-lg-5 col-12 rounded-1">
+    <a href="/dashboard/@Section/@Tile.Id">
+        <div class="tile @ColourForStatus(Tile.Status) @(count.HasValue ? "" : "inactive")">
+            @if (loading || Tile == null)
+            {
+                <Loading />
+            }
+            else
+            {
+                <div class="tile-content">
+                    <div class="dashtile-top">
+                        <i class="fa-solid dash-icon @IconForStatus(Tile.Status)" />
+                        <div class="count">@count</div>
+                    </div>
+                    <div class="dashtile-title">@Tile.Title</div>
+                </div>
+
+            }
+        </div>
+    </a>
+</div>
+
+@code {
+    [Parameter] public TileDTO? Tile { get; set; } = null;
+    [Parameter] public string Section { get; set; } = default!;
+
+    int? count { get; set; } = null;
+    bool loading { get; set; } = true;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Tile != null)
+        {
+            count = await DashboardService.GetTileCount(Tile.Id);
+            loading = false;
+        }
+    }
+
+    private string ColourForStatus(TileStatus status)
+    {
+        switch (status)
+        {
+            case TileStatus.Danger:
+                return "red";
+            case TileStatus.Alert:
+                return "yellow";
+            default:
+                return "green";
+        }
+    }
+
+    private string IconForStatus(TileStatus status)
+    {
+        switch (status)
+        {
+            case TileStatus.Danger:
+                return "bi-exclamation-triangle-fill";
+            case TileStatus.Alert:
+                return "bi-exclamation-circle-fill";
+            default:
+                return "bi-question-circle-fill";
+        }
+    }
+
+    // void IDisposable.Dispose() => persistingSubscription.Dispose();
+}

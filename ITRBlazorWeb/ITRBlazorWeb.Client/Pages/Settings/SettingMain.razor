@@ -1,0 +1,101 @@
+﻿@page "/settings"
+@using ITRBlazorWeb.Client.Layout
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+
+@attribute [Authorize]
+
+<PageTitle>Settings</PageTitle>
+
+<AuthorizeView>
+    <div id="administration-container">
+        <div id="tile-container">
+            <div class="tile-section row">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                    <a href="#">
+                        <div class="tile green">
+                            <div class="dashtile-top">
+                                <Icon Name="IconName.EnvelopeAt" Size="IconSize.x2" Color="IconColor.White" />
+                            </div>
+                            <div class="dashtile-title">
+                                <h2>Email Templates</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                    <a href="#">
+                        <div class="tile green">
+                            <div class="dashtile-top">
+                                <Icon Name="IconName.Magic" Size="IconSize.x2" Color="IconColor.White" />
+                            </div>
+                            <div class="dashtile-title">
+                                <h2>Events & Triggers</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                    <a href="#">
+                        <div class="tile green">
+                            <div class="dashtile-top">
+                                <Icon Name="IconName.Link45Deg" Size="IconSize.x2" Color="IconColor.White" />
+                            </div>
+                            <div class="dashtile-title">
+                                <h2>One Time Links</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                    <a href="#">
+                        <div class="tile green">
+                            <div class="dashtile-top">
+                                <Icon Name="IconName.Columns" Size="IconSize.x2" Color="IconColor.White" />
+                            </div>
+                            <div class="dashtile-title">
+                                <h2>Field Mappings</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="tile-section row pt-3">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                    <a href="#">
+                        <div class="tile green">
+                            <div class="dashtile-top">
+                                <Icon Name="IconName.Person" Size="IconSize.x2" Color="IconColor.White" />
+                            </div>
+                            <div class="dashtile-title">
+                                <h2>Users</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                    <a href="#">
+                        <div class="tile green">
+                            <div class="dashtile-top">
+                                <Icon Name="IconName.PersonLinesFill" Size="IconSize.x2" Color="IconColor.White" />
+                            </div>
+                            <div class="dashtile-title">
+                                <h2>Customers</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</AuthorizeView>
+@code{
+    [CascadingParameter] public MainLayout Main { get; set; } = default!;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        Main?.SetPage("Settings");
+    }
+
+}

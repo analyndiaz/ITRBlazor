@@ -1,0 +1,150 @@
+﻿@page "/dashboard/{Section}/{Type}"
+
+@rendermode @(new InteractiveServerRenderMode(false))
+@attribute [Authorize]
+
+@using Evolve.ITR.ServiceContract.Abstractions
+@using Evolve.ITR.ServiceContract.DTOs
+@using Evolve.ITR.ServiceContract.Enums
+@using ITRBlazorWeb.Client.Components.VehicleOrder
+@using Evolve.ITR.ServiceContract.Extensions
+@using Microsoft.AspNetCore.Authorization
+
+@inject IDashboardService DashboardService;
+@inject IVehicleOrderService VehicleOrderService
+
+@if (loading || vehicleOrders == null)
+{   
+    <div class="text-center">
+        <Spinner Class="me-3" Type="SpinnerType.Dots" Color="SpinnerColor.Secondary" Size="SpinnerSize.ExtraLarge" />
+    </div>
+}
+else
+{
+    <Grid TItem="VehicleOrderDTO"
+          Class="table table-hover table-bordered"
+          DataProvider="DataProvider"
+          AllowPaging="true"
+          AllowSorting="true"
+          Responsive="true"
+          EmptyText="No records found"
+          FixedHeader="true"
+          AllowRowClick="true"
+          Height="500" 
+          HeaderRowCssClass="bg-green text-white border-bottom-0"
+          OnRowClick="OnRowClick">
+
+        <GridColumn TItem="VehicleOrderDTO" HeaderText="Client" PropertyName="Client" SortString="Client" SortKeySelector="@(item => $"{item.ClientName} {item.ClientNum}")" HeaderTextAlignment="Alignment.Start" TextAlignment="Alignment.Start">
+            @(!(string.IsNullOrWhiteSpace(context.ClientName) && string.IsNullOrWhiteSpace(context.ClientNum)) ? $"{context.ClientName} ({context.ClientNum})" : "")
+        </GridColumn>
+        <GridColumn TItem="VehicleOrderDTO" HeaderText="Vehicle DAN" PropertyName="Dan" SortString="Dan" SortKeySelector="@(item => item.Dan)" HeaderTextAlignment="Alignment.Start" TextAlignment="Alignment.Start">
+            @context.Dan
+        </GridColumn>
+        <GridColumn TItem="VehicleOrderDTO" HeaderText="Unit #" PropertyName="UnitNum" SortString="UnitNum" SortKeySelector="@(item => item.UnitNum)" HeaderTextAlignment="Alignment.Start" TextAlignment="Alignment.Start">
+            @context.UnitNum
+        </GridColumn>
+        <GridColumn TItem="VehicleOrderDTO" HeaderText="VIN" PropertyName="Vin" SortString="Vin" SortKeySelector="@(item => item.Vin)" HeaderTextAlignment="Alignment.Start" TextAlignment="Alignment.Start">
+            @context.Vin
+        </GridColumn>
+        <GridColumn TItem="VehicleOrderDTO" HeaderText="Driver" PropertyName="Driver" SortString="Driver" SortKeySelector="@(item => $"{item.DriverFirstName} {item.DriverLastName}")" HeaderTextAlignment="Alignment.Start" TextAlignment="Alignment.Start">
+            @($"{context.DriverFirstName} {context.DriverLastName}")
+        </GridColumn>
+        <GridColumn TItem="VehicleOrderDTO" HeaderText="Breakdown" PropertyName="Breakdown" SortString="Breakdown" SortKeySelector="@(item => item.ClientBreakdown)" HeaderTextAlignment="Alignment.Start" TextAlignment="Alignment.Start">
+            @context.ClientBreakdown
+        </GridColumn>
+        <GridColumn TItem="VehicleOrderDTO" HeaderText="Order Type" PropertyName="DeliveryType" SortString="DeliveryType" SortKeySelector="@(item => item.DeliveryType)" HeaderTextAlignment="Alignment.Start" TextAlignment="Alignment.Start" Sortable="false">
+            @if (context.DeliveryType.HasValue)
+            {
+                <td>@(((VehicleOriginOptions)context.DeliveryType).ToDisplayDescription())</td>
+            }
+            else
+            {
+                <td>Unknown</td>
+            }
+        </GridColumn>
+        <GridColumn TItem="VehicleOrderDTO" HeaderText="Status" PropertyName="Status" SortString="Status" SortKeySelector="@(item => item.CurrentStage)" HeaderTextAlignment="Alignment.Start" TextAlignment="Alignment.Start" Sortable="false">
+            @context.CurrentStage?.ToDisplayDescription()
+        </GridColumn>
+    </Grid>
+
+    <Modal @ref="modal" Size="ModalSize.Large"></Modal>
+    <Offcanvas @ref="offcanvas" Class="details-container"/>
+    <Preload LoadingText="Loading..." />
+}
+
+@code {
+    [Parameter] public string Section { get; set; } = default!;
+    [Parameter] public string Type { get; set; } = default!;
+
+    List<VehicleOrderDTO> vehicleOrders = default!;
+    Modal modal = default!;
+    private Offcanvas offcanvas = default!;
+
+    bool loading = false;
+
+    [Inject] protected PreloadService PreloadService { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!string.IsNullOrEmpty(Type))
+        {
+            loading = true;
+            vehicleOrders = await DashboardService.GetTableViewList(Type);
+            loading = false;
+        }
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+        if (!string.IsNullOrEmpty(Type))
+        {
+            loading = true;
+            vehicleOrders = await DashboardService.GetTableViewList(Type);
+            loading = false;
+        }
+
+    }
+
+    private async Task<GridDataProviderResult<VehicleOrderDTO>> DataProvider(GridDataProviderRequest<VehicleOrderDTO> request)
+    {
+        if (vehicleOrders == null && !string.IsNullOrEmpty(Type))
+        {
+            vehicleOrders = await DashboardService.GetTableViewList(Type);
+        }
+
+        var result = vehicleOrders?.AsEnumerable();
+        if (request.Sorting is not null && request.Sorting.Any())
+        {
+            var sorting = request.Sorting.FirstOrDefault();
+            var sortDirection = sorting!.SortDirection;
+            var selector = sorting!.SortKeySelector;
+
+            if (sortDirection == SortDirection.Descending)
+            {
+                result = result.OrderByDescending(selector.Compile());
+            }
+            else if (sortDirection == SortDirection.Ascending)
+            {
+                result = result.OrderBy(selector.Compile());
+            }
+        }
+        result = result.Skip(request.PageSize * request.PageNumber).Take(request.PageSize);
+
+        return new GridDataProviderResult<VehicleOrderDTO> { Data = result.ToList(), TotalCount = vehicleOrders.Count() };
+    }
+
+    private async Task OnRowClick(GridRowEventArgs<VehicleOrderDTO> args)
+    {
+        // PreloadService.Show(SpinnerColor.Light, "Loading data...");
+        var vehicleOrder = await VehicleOrderService.GetById(args.Item.SpinAssetId);
+
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("vehicleOrder", vehicleOrder);
+        // PreloadService.Hide();
+
+        await offcanvas.ShowAsync<VehicleOrderDetails>(title: "Vehicle Order Details", parameters: parameters);
+        // await ModalService.ShowAsync(new ModalOption { Type = ModalType.Primary, Title = "Event: Row Click", Message = $"Id: {args.Item.Id}, Name: {args.Item.Name}" });
+        // PreloadService.Hide();
+    }
+}

@@ -1,0 +1,246 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\itrblazorweb\\itrblazorweb\\components\\dashboard\\tableview.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|solutionrelative:itrblazorweb\\components\\dashboard\\tableview.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\itrblazorweb\\itrblazorweb\\components\\dashboard\\tableview.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|solutionrelative:itrblazorweb\\components\\dashboard\\tableview.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15B509F1-5EF3-4B0F-8FFF-A4E58623103B}|ITRBlazorWeb.Client\\ITRBlazorWeb.Client.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\itrblazorweb\\itrblazorweb.client\\components\\vehicleorder\\vehicleorderdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{15B509F1-5EF3-4B0F-8FFF-A4E58623103B}|ITRBlazorWeb.Client\\ITRBlazorWeb.Client.csproj|solutionrelative:itrblazorweb.client\\components\\vehicleorder\\vehicleorderdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\itrblazorweb\\itrblazorweb\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|solutionrelative:itrblazorweb\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\itrblazorweb\\itrblazorweb\\components\\dashboard\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|solutionrelative:itrblazorweb\\components\\dashboard\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\itrblazorweb\\itrblazorweb\\components\\dashboard\\tilecount.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|solutionrelative:itrblazorweb\\components\\dashboard\\tilecount.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15B509F1-5EF3-4B0F-8FFF-A4E58623103B}|ITRBlazorWeb.Client\\ITRBlazorWeb.Client.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\itrblazorweb\\itrblazorweb.client\\pages\\settings\\settingmain.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{15B509F1-5EF3-4B0F-8FFF-A4E58623103B}|ITRBlazorWeb.Client\\ITRBlazorWeb.Client.csproj|solutionrelative:itrblazorweb.client\\pages\\settings\\settingmain.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15B509F1-5EF3-4B0F-8FFF-A4E58623103B}|ITRBlazorWeb.Client\\ITRBlazorWeb.Client.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\itrblazorweb\\itrblazorweb.client\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{15B509F1-5EF3-4B0F-8FFF-A4E58623103B}|ITRBlazorWeb.Client\\ITRBlazorWeb.Client.csproj|solutionrelative:itrblazorweb.client\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\itrblazorweb\\itrblazorweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|solutionrelative:itrblazorweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\itrblazorweb\\itrblazorweb\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|solutionrelative:itrblazorweb\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\itrblazorweb\\itrblazorweb\\services\\vehicleorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4255112B-12A0-422A-A682-0A6A9AC14E67}|ITRBlazorWeb\\ITRBlazorWeb.csproj|solutionrelative:itrblazorweb\\services\\vehicleorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79E5E2F1-134C-4C63-9AA5-C5CF3D317AB6}|..\\Evolve.ITR.ServiceContract\\Evolve.ITR.ServiceContract.csproj|c:\\users\\gino\\downloads\\itrblazorweb\\itrblazorweb\\evolve.itr.servicecontract\\extensions\\enumsextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 121,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VehicleOrderDetails.razor",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb.Client\\Components\\VehicleOrder\\VehicleOrderDetails.razor",
+              "RelativeDocumentMoniker": "ITRBlazorWeb.Client\\Components\\VehicleOrder\\VehicleOrderDetails.razor",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb.Client\\Components\\VehicleOrder\\VehicleOrderDetails.razor",
+              "RelativeToolTip": "ITRBlazorWeb.Client\\Components\\VehicleOrder\\VehicleOrderDetails.razor",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAB0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T09:30:12.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Components\\App.razor",
+              "RelativeDocumentMoniker": "ITRBlazorWeb\\Components\\App.razor",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Components\\App.razor",
+              "RelativeToolTip": "ITRBlazorWeb\\Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T07:18:53.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "VehicleOrderService.cs",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Services\\VehicleOrderService.cs",
+              "RelativeDocumentMoniker": "ITRBlazorWeb\\Services\\VehicleOrderService.cs",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Services\\VehicleOrderService.cs",
+              "RelativeToolTip": "ITRBlazorWeb\\Services\\VehicleOrderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T18:31:35.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EnumsExtension.cs",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\Evolve.ITR.ServiceContract\\Extensions\\EnumsExtension.cs",
+              "RelativeDocumentMoniker": "..\\Evolve.ITR.ServiceContract\\Extensions\\EnumsExtension.cs",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\Evolve.ITR.ServiceContract\\Extensions\\EnumsExtension.cs",
+              "RelativeToolTip": "..\\Evolve.ITR.ServiceContract\\Extensions\\EnumsExtension.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T17:19:25.166Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 172,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TableView.razor.css",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Components\\Dashboard\\TableView.razor.css",
+              "RelativeDocumentMoniker": "ITRBlazorWeb\\Components\\Dashboard\\TableView.razor.css",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Components\\Dashboard\\TableView.razor.css",
+              "RelativeToolTip": "ITRBlazorWeb\\Components\\Dashboard\\TableView.razor.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-15T10:38:43.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TableView.razor",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Components\\Dashboard\\TableView.razor",
+              "RelativeDocumentMoniker": "ITRBlazorWeb\\Components\\Dashboard\\TableView.razor",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Components\\Dashboard\\TableView.razor",
+              "RelativeToolTip": "ITRBlazorWeb\\Components\\Dashboard\\TableView.razor",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-11T12:33:33.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dashboard.razor",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Components\\Dashboard\\Dashboard.razor",
+              "RelativeDocumentMoniker": "ITRBlazorWeb\\Components\\Dashboard\\Dashboard.razor",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Components\\Dashboard\\Dashboard.razor",
+              "RelativeToolTip": "ITRBlazorWeb\\Components\\Dashboard\\Dashboard.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-11T16:49:36.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb.Client\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "ITRBlazorWeb.Client\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb.Client\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "ITRBlazorWeb.Client\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T09:10:07.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SettingMain.razor",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb.Client\\Pages\\Settings\\SettingMain.razor",
+              "RelativeDocumentMoniker": "ITRBlazorWeb.Client\\Pages\\Settings\\SettingMain.razor",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb.Client\\Pages\\Settings\\SettingMain.razor",
+              "RelativeToolTip": "ITRBlazorWeb.Client\\Pages\\Settings\\SettingMain.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T08:30:08.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TileCount.razor",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Components\\Dashboard\\TileCount.razor",
+              "RelativeDocumentMoniker": "ITRBlazorWeb\\Components\\Dashboard\\TileCount.razor",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Components\\Dashboard\\TileCount.razor",
+              "RelativeToolTip": "ITRBlazorWeb\\Components\\Dashboard\\TileCount.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T07:45:53.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Program.cs",
+              "RelativeDocumentMoniker": "ITRBlazorWeb\\Program.cs",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\Program.cs",
+              "RelativeToolTip": "ITRBlazorWeb\\Program.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAADEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T07:37:29.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\wwwroot\\app.css",
+              "RelativeDocumentMoniker": "ITRBlazorWeb\\wwwroot\\app.css",
+              "ToolTip": "C:\\Users\\Gino\\Downloads\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\ITRBlazorWeb\\wwwroot\\app.css",
+              "RelativeToolTip": "ITRBlazorWeb\\wwwroot\\app.css",
+              "ViewState": "AgIAAJsAAAAAAAAAAAD4v80AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-11T14:52:20.509Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

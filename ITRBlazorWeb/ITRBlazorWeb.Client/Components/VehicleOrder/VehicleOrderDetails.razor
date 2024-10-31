@@ -1,0 +1,202 @@
+﻿@using Evolve.ITR.ServiceContract.Abstractions
+@using Evolve.ITR.ServiceContract.Constants
+@using Evolve.ITR.ServiceContract.DTOs
+@using System.ComponentModel.DataAnnotations
+@using Evolve.ITR.ServiceContract.Enums
+@using Evolve.ITR.ServiceContract.Extensions
+@using Microsoft.AspNetCore.Authorization
+
+@rendermode @(new InteractiveServerRenderMode(false))
+@attribute [Authorize]
+
+@inject IVehicleOrderService VehicleOrderService
+
+<Tabs @ref="tabs" EnableFadeEffect="true">
+    <Tab Active="true">
+        <TitleTemplate>
+            <Icon Name="IconName.Receipt" /> Order
+        </TitleTemplate>
+        <Content>
+            <div class="row pt-1">
+                <div class="col-12 text-end">Status: <span style="font-style: italic; font-weight: 600">@vehicleOrder?.CurrentStage?.ToDisplayDescription()</span> </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-4">Order #</div>
+                <div class="col-8" style="font-weight: 600">: @(string.IsNullOrEmpty(vehicleOrder?.FactoryOrderNumber) ? "--" : vehicleOrder?.FactoryOrderNumber)</div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-4">Type</div>
+                <div class="col-8" style="font-weight: 600">
+                    : @(vehicleOrder != null && vehicleOrder.DeliveryType.HasValue
+                        ? ((VehicleOriginOptions)vehicleOrder.DeliveryType).ToDisplayDescription()
+                        : "Unknown")
+                </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-4">Client's Name</div>
+                <div class="col-8" style="font-weight: 600">: @($"{vehicleOrder?.ClientName} ({vehicleOrder?.ClientNum})")</div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-4">Breakdown</div>
+                <div class="col-8" style="font-weight: 600">: @vehicleOrder?.ClientBreakdown</div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-4">Delivered To Client</div>
+                <div class="col-8" style="font-weight: 600">: @(vehicleOrder?.DeliveredToClientOn?.ToString("dd/MM/yyyy") ?? "Waiting")</div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-4">Delivered To Dealer</div>
+                <div class="col-8" style="font-weight: 600">: @(vehicleOrder?.DeliveredToDealerOn?.ToString("dd/MM/yyyy") ?? "Waiting")</div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-4">MSO Received On</div>
+                <div class="col-8" style="font-weight: 600">: @(vehicleOrder?.MsoReceivedOn?.ToString("dd/MM/yyyy") ?? "Waiting")</div>
+            </div>
+        </Content>
+    </Tab>
+    <Tab >
+        
+        <TitleTemplate>
+            <Icon Name="IconName.TaxiFrontFill" /> Vehicle
+        </TitleTemplate>
+        <Content>
+            <div class="row pt-3 pb-2">
+                <div class="col-4 text-end">Spin ID :</div>
+                <div class="col-8 " style="font-weight: 600">@vehicleOrder?.SpinAssetId</div>
+            </div>
+            <div class="row pt-2 pb-2">
+                <div class="col-4 text-end">DAN :</div>
+                <div class="col-8 " style="font-weight: 600">@vehicleOrder?.Dan</div>
+            </div>
+            <div class="row pt-2 pb-2">
+                <div class="col-4 text-end">VIN :</div>
+                <div class="col-8 " style="font-weight: 600">@vehicleOrder?.Vin</div>
+            </div>
+            <div class="row pt-24 pb-2">
+                <div class="col-4  text-end">Vehicle :</div>
+                <div class="col-8" style="font-weight: 600">@vehicleOrder?.VehicleMake - @vehicleOrder?.VehicleModel (@vehicleOrder?.VehicleModelYear)</div>
+            </div>
+            <div class="row pt-2 pb-2">
+                <div class="col-4 text-end">Driver's Name :</div>
+                <div class="col-8" style="font-weight: 600">@vehicleOrder?.DriverFirstName @vehicleOrder?.DriverLastName</div>
+            </div>
+        </Content>
+    </Tab>
+    <Tab>
+        <TitleTemplate>
+            <Icon Name="IconName.CardList" /> On Hold Reasons
+        </TitleTemplate>
+        <Content>
+            @if (holdReasons != null && holdReasons.Where(r => !string.IsNullOrEmpty(r)).Any())
+            {
+                <ul>
+                @foreach (var rsn in holdReasons.Where(r => !string.IsNullOrEmpty(r)))
+                {
+                    if (ReasonConstants.Descriptions.TryGetValue(rsn, out var reason))
+                    {
+                        <li class="pt-2 pb-2">@reason</li>
+                    }
+                }
+                </ul>
+            }
+            else
+            {
+                <span>No record found.</span>
+            }
+        </Content>
+    </Tab>
+    @if (requests != null && requests.Any())
+    {
+        <Tab>
+            <TitleTemplate>
+                <Icon Name="IconName.SendCheck" /> Requests
+            </TitleTemplate>
+            <Content>
+                <ul>
+                    @foreach (var request in requests.OrderByDescending(r => r.RequestReceivedAt))
+                    {
+                        <li>
+                            <div style="color: @(request.RequestDueAt.HasValue && request.RequestDueAt.Value < DateTime.Now ? "red" : "inherit")">
+                                <div class="row pt-2">
+                                    <div class="col-5 col-md-3">Received At</div>
+                                    <div class="col-7 col-md-9">: @request.RequestReceivedAt?.ToString("dd/MM/yyyy")</div>
+                                </div>
+                                <div class="row pt-2">
+                                    <div class="col-5 col-md-3">State/Territory</div>
+                                    <div class="col-7 col-md-9">: @(request.RequestState ?? "--")</div>
+                                </div>
+                                <div class="row pt-2">
+                                    <div class="col-5 col-md-3">Status</div>
+                                    <div class="col-7 col-md-9">:
+                                        @(request.RequestCompletedOn.HasValue
+                                            ? $"Completed On ${request.RequestCompletedOn.Value.ToString("dd/MM/yyyy")}"
+                                            : request.RequestDueAt.HasValue && request.RequestDueAt.Value < DateTime.Now
+                                            ? "Past Due"
+                                            : "In-Progress")
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </Content>
+        </Tab>
+    }
+</Tabs>
+
+
+@code {
+    [Required, Parameter] public VehicleOrderDTO? vehicleOrder { get; set; } = default!;
+    Tabs tabs = default!;
+
+    string[] holdReasons = default!;
+    List<RequestDTO> requests = default!;
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+
+        base.OnInitialized();
+    }
+
+    protected override void OnParametersSet()
+    {
+        LoadData();
+
+        base.OnParametersSet();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await tabs.ShowTabByIndexAsync(0);
+
+    }
+
+    protected override bool ShouldRender()
+    {
+        return vehicleOrder != null;
+    }
+
+    private void LoadData()
+    {
+        if (vehicleOrder != null)
+        {
+            holdReasons = new[]
+                    {
+                        vehicleOrder.HoldReason1,
+                        vehicleOrder.HoldReason2,
+                        vehicleOrder.HoldReason3,
+                        vehicleOrder.HoldReason4,
+                        vehicleOrder.HoldReason5
+                    };
+            requests = vehicleOrder.Requests;
+        }
+    }
+
+    public void Dispose()
+    {
+        vehicleOrder = default!;
+        requests = default!;
+        holdReasons = default!;
+    }
+}

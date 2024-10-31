@@ -1,0 +1,90 @@
+﻿@page "/prerequisites"
+
+@using Evolve.ITR.ServiceContract.DTOs
+@using ITRBlazorWeb.Client.Layout
+@using Microsoft.AspNetCore.Authorization
+@using System.Globalization
+
+@inject IPreRequisiteService PreRequisiteService
+
+@rendermode @(new InteractiveServerRenderMode(false))
+@attribute [Authorize]
+
+<PageTitle>Pre-Requisites</PageTitle>
+
+@if (preRequisites == null)
+{
+    <div class="text-center">
+        <Spinner Class="me-3" Type="SpinnerType.Dots" Color="SpinnerColor.Secondary" Size="SpinnerSize.ExtraLarge" />
+    </div>
+}
+else
+{
+    <Grid TItem="PreRequisiteDTO"
+          Class="table table-hover table-bordered table-striped"
+          DataProvider="DataProvider"
+          AllowPaging="true"
+          AllowSorting="true"
+          FixedHeader="true" 
+          Height="500"
+          Responsive="true">
+
+        <GridColumn TItem="PreRequisiteDTO" HeaderText="State" PropertyName="State" SortString="State" SortKeySelector="item => item.State" FilterTextboxWidth="50" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+            @context.State
+        </GridColumn>
+        <GridColumn TItem="PreRequisiteDTO" HeaderText="Short Description" PropertyName="ShortDescription" SortString="ShortDescription" SortKeySelector="item => item.ShortDescription" FilterTextboxWidth="50" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+            @context.ShortDescription
+        </GridColumn>
+        <GridColumn TItem="PreRequisiteDTO" HeaderText="Long Description" PropertyName="LongDescription" SortString="LongDescription" SortKeySelector="item => item.LongDescription" FilterTextboxWidth="50" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+            @context.LongDescription
+        </GridColumn>
+        <GridColumn TItem="PreRequisiteDTO" HeaderText="Original Required" PropertyName="OriginalRequired" SortString="OriginalRequired" SortKeySelector="item => item.OriginalRequired" FilterTextboxWidth="50" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+            @(context.OriginalRequired ? "Yes" : "No")
+        </GridColumn>
+        <GridColumn TItem="PreRequisiteDTO" HeaderText="Provider" PropertyName="Provider" SortString="Provider" SortKeySelector="item => item.Provider" FilterTextboxWidth="50" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+            @context.Provider
+        </GridColumn>
+    </Grid>
+}
+
+
+@code {
+    List<PreRequisiteDTO> preRequisites = default!;
+    [CascadingParameter] public MainLayout Main { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (preRequisites == null)
+        {
+            preRequisites = await PreRequisiteService.GetAll();
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        Main?.SetPage("Pre-Requisites");
+    }
+
+    private async Task<GridDataProviderResult<PreRequisiteDTO>> DataProvider(GridDataProviderRequest<PreRequisiteDTO> request)
+    {
+        string sortString = "";
+        SortDirection sortDirection = SortDirection.None;
+
+        if (request.Sorting is not null && request.Sorting.Any())
+        {
+            // Note: Multi column sorting is not supported at this moment
+            sortString = request.Sorting.FirstOrDefault()!.SortString;
+            sortDirection = request.Sorting.FirstOrDefault()!.SortDirection;
+        }
+
+        if (preRequisites == null)
+        {
+            preRequisites = await PreRequisiteService.GetAll();
+        }
+
+        var result = preRequisites.Skip(request.PageSize * request.PageNumber).Take(request.PageSize).ToList();
+
+        return new GridDataProviderResult<PreRequisiteDTO> { Data = result, TotalCount = preRequisites.Count() };
+    }
+}

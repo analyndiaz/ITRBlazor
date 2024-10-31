@@ -1,0 +1,132 @@
+﻿.inactive {
+    /*pointer-events: none;*/
+    opacity: 0.3;
+}
+
+
+.tile {
+    display: block;
+    color: #fff;
+    /*margin: 5px;*/
+    min-width: 280px;
+    position: relative;
+    border-radius: 5px;
+    min-height: 174px;
+}
+
+    .tile .content {
+        position: relative;
+        height: 100px;
+        right: 30px;
+        text-align: right;
+        background-repeat: no-repeat;
+        background-position: top left;
+    }
+
+a,
+a:visited,
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+.dashtile-title {
+    display: flex;
+    align-items: center;
+    padding: 0px 30px;
+    height: 60%;
+    font-size: 17px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 400;
+    text-align: right;
+    padding: 0px 20px 15px 45px;
+    width: 100%;
+}
+
+.dashtile-top {
+    display: inline-block;
+    width: 100%;
+    height: 22%;
+    padding: 15px 20px 0px 20px;
+}
+
+    .dashtile-top i {
+        width: 25%;
+        height: 100%;
+        font-size: 3em;
+        display: inline-block;
+    }
+
+    .dashtile-top .count {
+        height: 100%;
+        font-size: 40px;
+        /* line-height: 50px; */
+        float: right;
+    }
+
+.tile .tile-content {
+    padding: 5px;
+}
+
+
+.tile .content .count {
+    position: relative;
+    font-size: 80px;
+}
+
+    .tile .content .count a,
+    .tile .content .count a:visited,
+    .tile .content .count a:link {
+        font-size: 80px;
+        text-decoration: none;
+        color: white;
+    }
+
+
+.tile .tile-content {
+    padding: 5px;
+}
+
+
+/**** Dashboard Tiles ******/
+.tile {
+    background-color: var(--green-default);
+}
+
+    .tile:hover {
+        background-color: var(--green-hover);
+    }
+
+    .tile.dark {
+        background-color: var(--dark);
+    }
+
+        .tile.dark:hover {
+            background-color: var(--dark-hover);
+        }
+
+
+    .tile.green {
+        background-color: var(--green-default);
+    }
+
+        .tile.green:hover {
+            background-color: var(--green-hover);
+        }
+
+    .tile.yellow {
+        background-color: var(--yellow-default);
+    }
+
+        .tile.yellow:hover {
+            background-color: var(--yellow-hover);
+        }
+
+    .tile.red {
+        background-color: var(--red-default);
+    }
+
+        .tile.red:hover {
+            background-color: var(--red-hover);
+        }
